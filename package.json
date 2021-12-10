@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jimp": "^0.16.1",
     "twitter.js": "^0.10.1"
   }
 }
