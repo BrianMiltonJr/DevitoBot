@@ -1,5 +1,6 @@
-import Jimp from 'jimp';
+import { bearerToken } from './secrets';
 import jimp  from 'jimp';
+import { Talaria } from './libs/Talaria/Talaria';
 
 enum BackgroundColors {
     GREEN = 'green',
@@ -45,4 +46,12 @@ export async function makeBlastin() {
     );
 
     const stat = await backdrop.write('./output-images/test.png');
+}
+
+function getProfilePicture(id: number) {
+    let profile = new Talaria(`https://api.twitter.com/2/users/${id.toString()}?user.field=profile_image_url`, 'GET');
+    profile.setRequestHeader('Authorization', `Bearer: ${bearerToken}`);
+    profile.send();
+
+    console.log(profile);
 }
