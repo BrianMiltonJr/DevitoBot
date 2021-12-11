@@ -34,3 +34,8 @@ export const quotes = [
     "“I didn't go to college. I don't know anybody who did. Bunch of hippies and cesspool salesmen, ha ha ha ha...”",
     "“There are only three things with that kind of unconditional acceptance: Dogs, donuts, and money.”"
 ];
+
+export function makeQuote(): string {
+    let index = Math.floor(Math.random() * quotes.length);
+    return quotes[index];
+}
