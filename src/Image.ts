@@ -21,7 +21,7 @@ enum BackgroundColors {
 }
 
 
-async function main() {
+export async function makeBlastin() {
     let colors = Object.keys(BackgroundColors);
     let index = Math.floor(Math.random() * colors.length);
     const danny = await jimp.read('./images/danny-template.png');
@@ -46,5 +46,3 @@ async function main() {
 
     const stat = await backdrop.write('./output-images/test.png');
 }
-
-main();
