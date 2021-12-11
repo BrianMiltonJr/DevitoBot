@@ -1,0 +1,3 @@
+[submodule "libs/Talaria"]
+	path = libs/Talaria
+	url = https://github.com/BrianMiltonJr/Talaria
