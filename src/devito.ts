@@ -1,6 +1,7 @@
 import { Client } from 'twitter.js';
 import { bearerToken } from './secrets';
-import { quotes } from './quotes';
+import { makeQuote } from './quotes';
+import { makeBlastin } from './Image';
 
 const client = new Client({
     events: [ 'FILTERED_TWEET_CREATE' ]
@@ -20,24 +21,20 @@ client.on('filteredTweetCreate', async tweet => {
     await tweet.like();
 });
 
-client.loginWithBearerToken(bearerToken);
+// client.loginWithBearerToken(bearerToken);
+RollDevito();
 
-function RollDevito() {
-    let number = Math.floor(Math.random() * 6);
-    switch (number) {
-        case 0:
-            return '';
-        case 1:
-            return '';
-        case 2:
-            return '';
-        case 3:
-            return '';
-        case 4:
-            return '';
-        case 5:
-            return '';
-        default:
-            return '';
+async function RollDevito() {
+    let number = Math.ceil(Math.random() * 100);
+    if (number > 0 && number < 10) {
+        console.log('Make Blastin');
+        makeBlastin();
+    } else if (number > 9 && number < 60) {
+        console.log('Make Quote');
+        console.log(makeQuote());
+    } else if(number > 59 && number < 80) {
+        console.log('Todo Implement Merch');
+    } else {
+        console.log('Todo Implement Meme');
     }
 }
